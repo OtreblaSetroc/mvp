@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_horizontal_margin_middle">8dp</dimen>
+    <dimen name="activity_horizontal_padding_txtVersion">180dp</dimen>
+
+    <dimen name="activity_vertical_margin_middle">8dp</dimen>
+
+    <dimen name="searchHeight">50dp</dimen>
+
+
+    <dimen name="textSizeNormal">12sp</dimen>
+    <dimen name="textSizeSmall2">11.5sp</dimen>
+    <dimen name="textSizeSmall">10sp</dimen>
+    <dimen name="textsizeItemReportRubro">9sp</dimen>
+
+    <dimen name="minWidthDialog">300dp</dimen>
+    <dimen name="minHeightItemMenureport">90dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="view_height_dialog">150dp</dimen>
+
+    <dimen name="padding_txt_tablerow">12dp</dimen>
+    <dimen name="padding_imageview">10dp</dimen>
+    <dimen name="layout_margin_table_row">0.7dp</dimen>
+    <!-- sell out -->
+    <dimen name="text_sell_out_margin">10dp</dimen>
+    <dimen name="textsizePorcentWeek">24sp</dimen>
+
+    <dimen name="textsizeItemReportRubroValue">12sp</dimen>
+
+    <dimen name="minheightLabelVisit">100dp</dimen>
+    <dimen name="design_bottom_navigation_active_text_size">12sp</dimen>
+
+
+
+</resources>
