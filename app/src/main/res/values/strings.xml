@@ -3,5 +3,9 @@
     <string name="concept">CONCEPTO</string>
     <string name="question">¿SE ACTUALIZÖ LA INFORMACIÓN DE PRECIOS EN EL ANUNCIO INDEPENDIENTE Y LOS DISPENSARIOS DE ACUERDO AL CORREO ELECTRÓNICO?</string>
     <string name="secction">SECCIÓN</string>
+    <string name="si">Sí</string>
+    <string name="no">No</string>
+    <string name="save">Guardar</string>
+    <string name="select">SELECCIONE</string>
 
 </resources>

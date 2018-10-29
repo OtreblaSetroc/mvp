@@ -14,7 +14,21 @@ public class DtoQuestion {
     private String Max_photo;
     private String Min_photo;
     private String answer_default;
-    private List<DtoQuestion> dtoQuestionList;
+    private List<DtoOption> dtoOptions;
+
+    public DtoQuestion(String id_question, String id_secction, String id_type, String length, String description, String requeried, String visibility, List<DtoOption> dtoQuestionList) {
+        this.id_question = id_question;
+        this.id_secction = id_secction;
+        this.id_type = id_type;
+        this.length = length;
+        this.description = description;
+        this.requeried = requeried;
+        this.visibility = visibility;
+        this.dtoOptions = dtoQuestionList;
+    }
+
+    public DtoQuestion() {
+    }
 
     public String getId_question() {
         return id_question;
@@ -104,11 +118,11 @@ public class DtoQuestion {
         this.answer_default = answer_default;
     }
 
-    public List<DtoQuestion> getDtoQuestionList() {
-        return dtoQuestionList;
+    public List<DtoOption> getDtoOptions() {
+        return dtoOptions;
     }
 
-    public void setDtoQuestionList(List<DtoQuestion> dtoQuestionList) {
-        this.dtoQuestionList = dtoQuestionList;
+    public void setDtoOptions(List<DtoOption> dtoOptions) {
+        this.dtoOptions = dtoOptions;
     }
 }

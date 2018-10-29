@@ -8,14 +8,13 @@
 
     <TextView
         android:id="@+id/txt_question"
-        android:layout_width="160dp"
-        android:layout_height="75dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/question"
         android:textSize="@dimen/textSizeSmall"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent=".6" />
-
 
     <ScrollView
         android:id="@+id/scrowRv2"
@@ -62,5 +61,6 @@
         android:text="RadioButton"
         tools:layout_editor_absoluteX="276dp"
         tools:layout_editor_absoluteY="16dp" />
+
 
 </android.support.constraint.ConstraintLayout>
