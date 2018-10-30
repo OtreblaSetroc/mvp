@@ -16,9 +16,11 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import hidrosina.gshp.net.pre_alpha_hidrosina.Model.dto.DtoOption;
 import hidrosina.gshp.net.pre_alpha_hidrosina.Model.dto.DtoQuestion;
 import hidrosina.gshp.net.pre_alpha_hidrosina.R;
 
@@ -28,6 +30,8 @@ public class RVMain extends RecyclerView.Adapter<RVMain.ViewHolder> {
     private LinearLayoutManager lmy;
     private Context context;
     private List<DtoQuestion> dtoQuestionList;
+    private String textoSi="Yes";
+    private String texxtoNo="NO";
 
     public RVMain(List<String> questions) {
         this.questions = questions;
@@ -67,22 +71,42 @@ public class RVMain extends RecyclerView.Adapter<RVMain.ViewHolder> {
             holder.linearLayout.setBackgroundResource(R.drawable.border_zebra2);
             holder.nestedScrollView.setBackgroundResource(R.drawable.border_zebra2);
         }
+
+        /*Tipo Switch 1*/
         if (dtoQuestion.getId_type().equals("1")){
+            final DtoOption dtoOptions;
+            dtoOptions=dtoQuestion.getDtoOptions().get(0);
+            String textoSwitch=dtoOptions.getValue();
+
+            if (textoSwitch.contains("-")){
+                textoSi=textoSwitch.split(Pattern.quote("-"))[0];
+                texxtoNo=textoSwitch.split(Pattern.quote("-"))[1];
+            }
+            holder.aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if (isChecked){
+                        holder.aSwitch.setText(textoSi+"");
+                        dtoOptions.setChecked(1);
+
+                    }else{
+                        holder.aSwitch.setText(texxtoNo+"");
+                        dtoOptions.setChecked(2);
+                    }
+                }
+            });
+
+            if (dtoOptions.getChecked()==1){
+                holder.aSwitch.setChecked(true);
+            }else{
+                holder.aSwitch.setChecked(false);
+            }
+
+
 
         }
 
-        holder.aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked){
 
-                }else{
-
-                }
-
-                Log.e("sergioSwitch","Pregunta "+dtoQuestion.getId_question()+" ,"+isChecked+"");
-            }
-        });
 
 
 

@@ -5,6 +5,8 @@ public class DtoOption {
     private String option;
     private String value;
     private String order;
+    private int checked;
+
 
 
     public DtoOption(String idOption, String value) {
@@ -14,7 +16,13 @@ public class DtoOption {
 
     public DtoOption() {
     }
+    public int getChecked() {
+        return checked;
+    }
 
+    public void setChecked(int checked) {
+        this.checked = checked;
+    }
     public String getIdOption() {
         return idOption;
     }
