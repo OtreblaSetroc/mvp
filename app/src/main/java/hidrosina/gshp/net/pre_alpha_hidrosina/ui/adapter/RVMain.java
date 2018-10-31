@@ -2,6 +2,7 @@ package hidrosina.gshp.net.pre_alpha_hidrosina.ui.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -132,10 +133,10 @@ public class RVMain extends RecyclerView.Adapter<RVMain.ViewHolder> {
         @BindView(R.id.tvQuestion)
         TextView tvQuestion;
         @BindView(R.id.lny_main)
-        LinearLayout linearLayout;
+        ConstraintLayout linearLayout;
         @BindView(R.id.switch1)
         Switch aSwitch;
-        @BindView(R.id.nestedScrollRowSwitch)
+        @BindView(R.id.nestedScrollView)
         NestedScrollView nestedScrollView;
         /*@BindView(R.id.rvRowMain)
         RecyclerView recyclerView;*/
