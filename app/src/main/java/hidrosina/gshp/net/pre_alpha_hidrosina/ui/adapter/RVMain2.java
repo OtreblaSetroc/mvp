@@ -62,7 +62,7 @@ public class RVMain2 extends RecyclerView.Adapter<RecyclerView.ViewHolder>  {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(final @NonNull RecyclerView.ViewHolder holder, final int position) {
         switch (type){
             case 1:
                 ViewSwitch viewSwitch=(ViewSwitch) holder;
@@ -74,16 +74,12 @@ public class RVMain2 extends RecyclerView.Adapter<RecyclerView.ViewHolder>  {
                  break;
 
         }
-
-
-
-
     }
 
     private void configureVSwitch(final ViewSwitch holder, final int position) {
-
+    /*
         final DtoQuestion dtoQuestion=dtoQuestionList.get(position);
-        holder.tvQuestion.setText(dtoQuestion.getDescription()+" ");
+       // holder.tvQuestion.setText(dtoQuestion.getDescription()+" ");
         if (position%2==0){
             holder.linearLayout.setBackgroundResource(R.drawable.border_zebra1);
             holder.nestedScrollView.setBackgroundResource(R.drawable.border_zebra1);
@@ -109,8 +105,12 @@ public class RVMain2 extends RecyclerView.Adapter<RecyclerView.ViewHolder>  {
                     holder.txtCalendar.setVisibility(View.GONE);
                     holder.txtFotoWithText.setVisibility(View.VISIBLE);
                     holder.txtFotoWithoutText.setVisibility(View.GONE);
-                    if (!dtoQuestion.getMax_photo().equals("-1")){
-                        holder.txtFotoWithText.setText("(/)"+dtoQuestion.getMax_photo());
+                    if (dtoQuestion.getMax_photo()!=null){
+                        if (!dtoQuestion.getMax_photo().equals("-1")){
+                            holder.txtFotoWithText.setText("(/)"+dtoQuestion.getMax_photo());
+                        }
+                    }else {
+                        holder.txtFotoWithText.setText("(/0)");
                     }
                     break;
                 default:
@@ -121,71 +121,63 @@ public class RVMain2 extends RecyclerView.Adapter<RecyclerView.ViewHolder>  {
 
         }
 
-        if (dtoQuestion.getDtoOptions().size()<2){
-            final DtoOption dtoOptions;
-            dtoOptions=dtoQuestion.getDtoOptions().get(0);
-            String textoSwitch=dtoOptions.getValue();
-            if (textoSwitch.contains("-")){
-                textoSi=textoSwitch.split(Pattern.quote("-"))[0];
-                texxtoNo=textoSwitch.split(Pattern.quote("-"))[1];
-            }
-            holder.aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    if (isChecked){
-                        holder.aSwitch.setText(textoSi+"");
-                        try {
-                            dtoOptions.setChecked(1);
-                        }catch (Exception e){
-
-                        }
-
-                    }else{
-                        holder.aSwitch.setText(texxtoNo+"");
-                        dtoOptions.setChecked(2);
-                    }
+        if (dtoQuestion.getDtoOptions()!=null){ // significa que no es un question tipo foto
+            if (dtoQuestion.getDtoOptions().size()<2){
+                final DtoOption dtoOptions;
+                dtoOptions=dtoQuestion.getDtoOptions().get(0);
+                String textoSwitch=dtoOptions.getValue();
+                if (textoSwitch.contains("-")){
+                    textoSi=textoSwitch.split(Pattern.quote("-"))[0];
+                    texxtoNo=textoSwitch.split(Pattern.quote("-"))[1];
                 }
-            });
-            if (dtoOptions.getChecked()==1){
-                holder.aSwitch.setChecked(true);
-            }else{
-                holder.aSwitch.setChecked(false);
-            }
+                holder.aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        if (isChecked){
+                            holder.aSwitch.setText(textoSi+"");
+                            dtoOptions.setChecked(1);
+                        }else{
+                            holder.aSwitch.setText(texxtoNo+"");
+                            dtoOptions.setChecked(2);
+                        }
+                    }
+                });
+                if (dtoOptions.getChecked()==1){
+                    holder.aSwitch.setChecked(true);
+                }else{
+                    holder.aSwitch.setChecked(false);
+                }
 
-        }else{
-            /*Como es de tipo 2, Switch, solo se puede recibir mínimo un opción y máximo 2*/
-            final DtoOption dtoOptions;
+            }else{
+                /*Como es de tipo 2, Switch, solo se puede recibir mínimo un opción y máximo 2
+                final DtoOption dtoOptions;
                 dtoOptions=dtoQuestion.getDtoOptions().get(0);
                 textoSi=dtoQuestion.getDtoOptions().get(0).getValue();
                 texxtoNo=dtoQuestion.getDtoOptions().get(1).getValue();
-            holder.aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    if (isChecked){
-                        holder.aSwitch.setText(textoSi+"");
-                        try {
+                holder.aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        if (isChecked){
+                            holder.aSwitch.setText(textoSi+"");
                             dtoOptions.setChecked(1);
-                        }catch (Exception e){
 
+                        }else{
+                            holder.aSwitch.setText(texxtoNo+"");
+                            dtoOptions.setChecked(2);
                         }
-
-                    }else{
-                        holder.aSwitch.setText(texxtoNo+"");
-                        dtoOptions.setChecked(2);
                     }
+                });
+                if (dtoOptions.getChecked()==1){
+                    holder.aSwitch.setChecked(true);
+                }else{
+                    holder.aSwitch.setChecked(false);
                 }
-            });
-            if (dtoOptions.getChecked()==1){
-                holder.aSwitch.setChecked(true);
-            }else{
-                holder.aSwitch.setChecked(false);
-            }
 
+            }
 
         }
 
-
-
+         */
 
 
     }

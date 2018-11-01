@@ -44,15 +44,16 @@ public class Presenter {
         view.changeHeaderTittle(dtoDefaultLayout.getHeaderTittle());
     }
     public RVMain getAdapter(){
-        List<String> questions= new ArrayList<>();
+       /* List<String> questions= new ArrayList<>();
         for (int i=0;i<10;i++){
             questions.add("¿SE ACTUALIZÖ LA INFORMACIÓN DE PRECIOS EN EL ANUNCIO INDEPENDIENTE Y LOS DISPENSARIOS DE ACUERDO AL CORREO ELECTRÓNICO? "+i+"?");
             Log.e("sergioq ",questions.get(i)+"");
         }
-        return new RVMain(questions);
+        return new RVMain(questions);*/
+       return null;
     }
     public RVMain getAdapter( Context context){
-        List<String> questions= new ArrayList<>();
+       /* List<String> questions= new ArrayList<>();
         List<String> botones= new ArrayList<>();
         viewsItemsList=new ArrayList<>();
         int options=2; // opciones 2 por pregunta simulando lo que viene de servicios
@@ -76,7 +77,8 @@ public class Presenter {
 
 
 
-        return new RVMain(questions,new RVRowMain(viewsItemsList,1),context);
+        return new RVMain(questions,new RVRowMain(viewsItemsList,1),context); */
+       return null;
     }
     public RVMain2 getAdapter(int type){
         dtoQuestionList= new ArrayList<>();
@@ -85,11 +87,11 @@ public class Presenter {
         for (int i=0;i<10;i++){
             dtoOptions= new ArrayList<>();
             for (int j=0;j<options;j++){
-                dtoOptions.add(new DtoOption(j+"","Sí-NO"));
+              //  dtoOptions.add(new DtoOption(j+"","Sí-NO"));
             }
-            dtoQuestionList.add(new DtoQuestion(i+"",1+"","0",type+"",0+"","¿SE ACTUALIZÖ LA INFORMACIÓN DE PRECIOS EN EL ANUNCIO INDEPENDIENTE Y LOS DISPENSARIOS DE ACUERDO AL CORREO ELECTRÓNICO? "+i+"?"
-                    ,0+"",1+"",dtoOptions));
-            dtoQuestionList.add(new DtoQuestion(i+"","1",i+"","9","0","Foto","0","1",null));
+          //  dtoQuestionList.add(new DtoQuestion(i+"",1+"","0",type+"",0+"","¿SE ACTUALIZÖ LA INFORMACIÓN DE PRECIOS EN EL ANUNCIO INDEPENDIENTE Y LOS DISPENSARIOS DE ACUERDO AL CORREO ELECTRÓNICO? "+i+"?"
+                  //  ,0+"",1+"",dtoOptions));
+           // dtoQuestionList.add(new DtoQuestion(i+"","1",i+"","9","0","Foto","0","1",null));
 
         }
 
