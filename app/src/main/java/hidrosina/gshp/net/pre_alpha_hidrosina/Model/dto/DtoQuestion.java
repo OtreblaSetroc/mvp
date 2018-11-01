@@ -14,11 +14,13 @@ public class DtoQuestion {
     private String Max_photo;
     private String Min_photo;
     private String answer_default;
+    private String id_parent;
     private List<DtoOption> dtoOptions;
 
-    public DtoQuestion(String id_question, String id_secction, String id_type, String length, String description, String requeried, String visibility, List<DtoOption> dtoQuestionList) {
+    public DtoQuestion(String id_question, String id_secction,String id_parent, String id_type, String length, String description, String requeried, String visibility, List<DtoOption> dtoQuestionList) {
         this.id_question = id_question;
         this.id_secction = id_secction;
+        this.id_parent=id_parent;
         this.id_type = id_type;
         this.length = length;
         this.description = description;
@@ -26,6 +28,8 @@ public class DtoQuestion {
         this.visibility = visibility;
         this.dtoOptions = dtoQuestionList;
     }
+
+
 
     public DtoQuestion() {
     }

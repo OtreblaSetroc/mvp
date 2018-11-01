@@ -15,6 +15,7 @@ import hidrosina.gshp.net.pre_alpha_hidrosina.Model.dto.DtoDefaultLayout;
 import hidrosina.gshp.net.pre_alpha_hidrosina.Model.dto.DtoOption;
 import hidrosina.gshp.net.pre_alpha_hidrosina.Model.dto.DtoQuestion;
 import hidrosina.gshp.net.pre_alpha_hidrosina.ui.adapter.RVMain;
+import hidrosina.gshp.net.pre_alpha_hidrosina.ui.adapter.RVMain2;
 import hidrosina.gshp.net.pre_alpha_hidrosina.ui.adapter.RVRowMain;
 
 public class Presenter {
@@ -77,7 +78,7 @@ public class Presenter {
 
         return new RVMain(questions,new RVRowMain(viewsItemsList,1),context);
     }
-    public RVMain getAdapter(Context context,int type){
+    public RVMain2 getAdapter(int type){
         dtoQuestionList= new ArrayList<>();
         List<DtoOption> dtoOptions;
         int options=1;
@@ -86,14 +87,15 @@ public class Presenter {
             for (int j=0;j<options;j++){
                 dtoOptions.add(new DtoOption(j+"","Sí-NO"));
             }
-            dtoQuestionList.add(new DtoQuestion(i+"",1+"",type+"",0+"","¿SE ACTUALIZÖ LA INFORMACIÓN DE PRECIOS EN EL ANUNCIO INDEPENDIENTE Y LOS DISPENSARIOS DE ACUERDO AL CORREO ELECTRÓNICO? "+i+"?"
+            dtoQuestionList.add(new DtoQuestion(i+"",1+"","0",type+"",0+"","¿SE ACTUALIZÖ LA INFORMACIÓN DE PRECIOS EN EL ANUNCIO INDEPENDIENTE Y LOS DISPENSARIOS DE ACUERDO AL CORREO ELECTRÓNICO? "+i+"?"
                     ,0+"",1+"",dtoOptions));
+            dtoQuestionList.add(new DtoQuestion(i+"","1",i+"","9","0","Foto","0","1",null));
 
         }
 
-        return new RVMain(dtoQuestionList,context);
+        return new RVMain2(dtoQuestionList,type);
     }
-    private void setRvMain(RVMain adapter) {
+    private void setRvMain(RVMain2 adapter) {
         view.setRv(adapter);
     }
 
@@ -101,12 +103,12 @@ public class Presenter {
     public void init() {
         setMenuTittle();
         setHeaderTittle();
-        setRvMain(getAdapter());
+        setRvMain(getAdapter(1));
     }
     public void init(Context context) {
         setMenuTittle();
         setHeaderTittle();
-        setRvMain(getAdapter(context,1));
+        setRvMain(getAdapter(1));
     }
 
 
@@ -114,7 +116,7 @@ public class Presenter {
     public interface View {
         void changeMenuTittle(String info);
         void changeHeaderTittle(String info);
-        void setRv(RVMain rvMain);
+        void setRv(RVMain2 rvMain);
     }
 
 }

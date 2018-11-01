@@ -10,6 +10,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import hidrosina.gshp.net.pre_alpha_hidrosina.Presenter.Presenter;
 import hidrosina.gshp.net.pre_alpha_hidrosina.ui.adapter.RVMain;
+import hidrosina.gshp.net.pre_alpha_hidrosina.ui.adapter.RVMain2;
 
 public class MainActivity extends AppCompatActivity implements Presenter.View {
     @BindView(R.id.txttitleActivity2)
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements Presenter.View {
     }
 
     @Override
-    public void setRv(RVMain rvmain) {
+    public void setRv(RVMain2 rvmain) {
         rvMain.setLayoutManager(lmy);
         rvMain.setAdapter(rvmain);
     }
