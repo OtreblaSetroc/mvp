@@ -13,7 +13,7 @@
         android:top="1dip"
         >
         <shape>
-            <solid android:color="@color/colorZebra2" />
+            <solid android:color="@color/color_gray" />
 
         </shape>
 

@@ -1,18 +1,9 @@
 package hidrosina.gshp.net.pre_alpha_hidrosina.Model.dto;
 
-import android.support.annotation.NonNull;
-
-import java.util.List;
-
-import io.realm.RealmList;
-import io.realm.RealmObject;
-import io.realm.annotations.PrimaryKey;
-
-public class DtoQuestion extends RealmObject {
-    @PrimaryKey
-    @NonNull
+public class DtoSimpleQuestion {
     private String id_question;
     private String id_secction;
+    private String id_parent;
     private String id_type;
     private String length;
     private String description;
@@ -22,9 +13,7 @@ public class DtoQuestion extends RealmObject {
     private String Max_photo;
     private String Min_photo;
     private String answer_default;
-    private String id_parent;
-
-    private RealmList<DtoOption> option;
+    private Map<String, DtoSimpleOption> option;
 
     public String getId_question() {
         return id_question;
@@ -115,20 +104,12 @@ public class DtoQuestion extends RealmObject {
     }
 
 
-    public RealmList<DtoOption> getOption() {
+    public Map<String, DtoSimpleOption> getOption() {
         return option;
     }
 
-    public void setOption(RealmList<DtoOption> option) {
+    public void setOption(Map<String, DtoSimpleOption> option) {
         this.option = option;
-    }
-
-    public String getId_parent() {
-        return id_parent;
-    }
-
-    public void setId_parent(String id_parent) {
-        this.id_parent = id_parent;
     }
 
     @Override

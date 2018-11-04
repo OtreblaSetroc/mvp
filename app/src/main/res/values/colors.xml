@@ -6,8 +6,8 @@
     <color name="color_white">#ffffff</color>
     <color name="color_green">#FF02AF48</color>
     <color name="color_gray">#FFEFEFEF</color>
-    <color name="color_dark_gray">#FFCECECE</color>
     <color name="color_black">#000000</color>
+    <color name="color_D_gray">#FFCECECE</color>
     <color name="colorZebra1">#ffffff</color>
     <color name="colorZebra2">#fafafa</color>
 

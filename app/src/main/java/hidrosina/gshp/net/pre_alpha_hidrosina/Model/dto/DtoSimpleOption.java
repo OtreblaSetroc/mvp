@@ -1,13 +1,6 @@
 package hidrosina.gshp.net.pre_alpha_hidrosina.Model.dto;
 
-import android.support.annotation.NonNull;
-
-import io.realm.RealmObject;
-import io.realm.annotations.PrimaryKey;
-
-public class DtoOption extends RealmObject {
-    @PrimaryKey
-    @NonNull
+public class DtoSimpleOption {
     private String idOption;
     private String IdInputEvent;
     private String value;
@@ -54,6 +47,4 @@ public class DtoOption extends RealmObject {
                 ", order='" + order + '\'' +
                 '}';
     }
-
-
 }

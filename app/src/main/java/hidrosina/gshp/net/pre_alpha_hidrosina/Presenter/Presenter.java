@@ -12,7 +12,10 @@ import javax.security.auth.login.LoginException;
 
 import hidrosina.gshp.net.pre_alpha_hidrosina.Model.Model;
 import hidrosina.gshp.net.pre_alpha_hidrosina.Model.dto.DtoDefaultLayout;
+import hidrosina.gshp.net.pre_alpha_hidrosina.Model.dto.DtoOption;
+import hidrosina.gshp.net.pre_alpha_hidrosina.Model.dto.DtoQuestion;
 import hidrosina.gshp.net.pre_alpha_hidrosina.ui.adapter.RVMain;
+import hidrosina.gshp.net.pre_alpha_hidrosina.ui.adapter.RVMain2;
 import hidrosina.gshp.net.pre_alpha_hidrosina.ui.adapter.RVRowMain;
 
 public class Presenter {
@@ -21,6 +24,7 @@ public class Presenter {
     private Model model;
     private List<ViewItem> viewItemsList;
     private List<ViewItems> viewsItemsList;
+    private List<DtoQuestion> dtoQuestionList;
 
     public Presenter(View view) {
         this.view = view;
@@ -40,15 +44,16 @@ public class Presenter {
         view.changeHeaderTittle(dtoDefaultLayout.getHeaderTittle());
     }
     public RVMain getAdapter(){
-        List<String> questions= new ArrayList<>();
+       /* List<String> questions= new ArrayList<>();
         for (int i=0;i<10;i++){
             questions.add("¿SE ACTUALIZÖ LA INFORMACIÓN DE PRECIOS EN EL ANUNCIO INDEPENDIENTE Y LOS DISPENSARIOS DE ACUERDO AL CORREO ELECTRÓNICO? "+i+"?");
             Log.e("sergioq ",questions.get(i)+"");
         }
-        return new RVMain(questions);
+        return new RVMain(questions);*/
+       return null;
     }
     public RVMain getAdapter( Context context){
-        List<String> questions= new ArrayList<>();
+       /* List<String> questions= new ArrayList<>();
         List<String> botones= new ArrayList<>();
         viewsItemsList=new ArrayList<>();
         int options=2; // opciones 2 por pregunta simulando lo que viene de servicios
@@ -72,9 +77,27 @@ public class Presenter {
 
 
 
-        return new RVMain(questions,new RVRowMain(viewsItemsList,1),context);
+        return new RVMain(questions,new RVRowMain(viewsItemsList,1),context); */
+       return null;
     }
-    private void setRvMain(RVMain adapter) {
+    public RVMain2 getAdapter(int type){
+        dtoQuestionList= new ArrayList<>();
+        List<DtoOption> dtoOptions;
+        int options=1;
+        for (int i=0;i<10;i++){
+            dtoOptions= new ArrayList<>();
+            for (int j=0;j<options;j++){
+              //  dtoOptions.add(new DtoOption(j+"","Sí-NO"));
+            }
+          //  dtoQuestionList.add(new DtoQuestion(i+"",1+"","0",type+"",0+"","¿SE ACTUALIZÖ LA INFORMACIÓN DE PRECIOS EN EL ANUNCIO INDEPENDIENTE Y LOS DISPENSARIOS DE ACUERDO AL CORREO ELECTRÓNICO? "+i+"?"
+                  //  ,0+"",1+"",dtoOptions));
+           // dtoQuestionList.add(new DtoQuestion(i+"","1",i+"","9","0","Foto","0","1",null));
+
+        }
+
+        return new RVMain2(dtoQuestionList,type);
+    }
+    private void setRvMain(RVMain2 adapter) {
         view.setRv(adapter);
     }
 
@@ -82,12 +105,12 @@ public class Presenter {
     public void init() {
         setMenuTittle();
         setHeaderTittle();
-        setRvMain(getAdapter());
+        setRvMain(getAdapter(1));
     }
     public void init(Context context) {
         setMenuTittle();
         setHeaderTittle();
-        setRvMain(getAdapter(context));
+        setRvMain(getAdapter(1));
     }
 
 
@@ -95,7 +118,7 @@ public class Presenter {
     public interface View {
         void changeMenuTittle(String info);
         void changeHeaderTittle(String info);
-        void setRv(RVMain rvMain);
+        void setRv(RVMain2 rvMain);
     }
 
 }
