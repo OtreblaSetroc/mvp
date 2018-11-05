@@ -1,5 +1,6 @@
 package hidrosina.gshp.net.pre_alpha_hidrosina;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,6 +12,9 @@ import butterknife.ButterKnife;
 import hidrosina.gshp.net.pre_alpha_hidrosina.Presenter.Presenter;
 import hidrosina.gshp.net.pre_alpha_hidrosina.ui.adapter.RVMain;
 import hidrosina.gshp.net.pre_alpha_hidrosina.ui.adapter.RVMain2;
+import io.realm.Realm;
+import com.facebook.stetho.Stetho;
+import com.uphyca.stetho_realm.RealmInspectorModulesProvider;
 
 public class MainActivity extends AppCompatActivity implements Presenter.View {
     @BindView(R.id.txttitleActivity2)
@@ -30,9 +34,9 @@ public class MainActivity extends AppCompatActivity implements Presenter.View {
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
         ButterKnife.bind(this);
+        Realm.init(this);
         presenter= new Presenter(this);
         lmy = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-
         presenter.init(getApplicationContext());
 
 
@@ -51,8 +55,26 @@ public class MainActivity extends AppCompatActivity implements Presenter.View {
     }
 
     @Override
-    public void setRv(RVMain2 rvmain) {
+    public void setRv(RVMain2 rvmain,Context context) {
         rvMain.setLayoutManager(lmy);
         rvMain.setAdapter(rvmain);
+        presenter.setupRecyclerView( rvMain,context);
+
+    }
+
+    @Override
+    public void initStethoWithReal(Context context) {
+        //To initialize Stetho and Stetho-Realm.
+        Stetho.initialize(
+                Stetho.newInitializerBuilder(context)
+                        .enableDumpapp(Stetho.defaultDumperPluginsProvider(context))
+                        .enableWebKitInspector(
+                                RealmInspectorModulesProvider.builder(context)
+                                        .withDeleteIfMigrationNeeded(true) //if there is any changes in database schema then rebuild bd.
+                                        .withMetaTables() //extract table meta data
+                                        .withLimit(10000) //by default limit of data id 250, but you can increase with this
+                                        .build()
+                        )
+                        .build());
     }
 }

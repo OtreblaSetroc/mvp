@@ -76,8 +76,8 @@ public class RVMain extends RecyclerView.Adapter<RVMain.ViewHolder> {
         /*Tipo Switch 1*/
         if (dtoQuestion.getId_type().equals("1")){
             final DtoOption dtoOptions;
-            dtoOptions=dtoQuestion.getDtoOptions().get(0);
-            String textoSwitch=dtoOptions.getValue();
+           // dtoOptions=dtoQuestion.getDtoOptions().get(0);
+            String textoSwitch=""; //dtoOptions.getValue();
 
             if (textoSwitch.contains("-")){
                 textoSi=textoSwitch.split(Pattern.quote("-"))[0];
@@ -88,35 +88,24 @@ public class RVMain extends RecyclerView.Adapter<RVMain.ViewHolder> {
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     if (isChecked){
                         holder.aSwitch.setText(textoSi+"");
-                        dtoOptions.setChecked(1);
+                        //dtoOptions.setChecked(1);
 
                     }else{
                         holder.aSwitch.setText(texxtoNo+"");
-                        dtoOptions.setChecked(2);
+                        //dtoOptions.setChecked(2);
                     }
                 }
             });
 
-            if (dtoOptions.getChecked()==1){
+           /* if (dtoOptions.getChecked()==1){
                 holder.aSwitch.setChecked(true);
             }else{
                 holder.aSwitch.setChecked(false);
-            }
+            }*/
 
 
 
         }
-
-
-
-
-
-
-
-
-
-
-
         /*lmy=new CustomLinearLayoutManager(context);
         holder.recyclerView.setLayoutManager(lmy);
         rvRowMain.setPlace(position);

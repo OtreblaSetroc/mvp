@@ -1,0 +1,84 @@
+{
+  
+  "Seccion" : {
+    "IdSeccion2" : {
+      "question" : [ {
+        "answer_default" : "",
+        "description" : "¿Pregunta?",
+        "id_parent" : "0",
+        "id_question" : "1",
+        "id_secction" : "1",
+        "id_type" : "1",
+        "max_photo" : "-1",
+        "min_photo" : "-1",
+        "option" : [ {
+          "idInputEvent" : "idQuestion2",
+          "idOption" : "1",
+          "order" : "1",
+          "value" : "Si"
+        }, {
+          "idInputEvent" : "idQuestion1",
+          "idOption" : "2",
+          "order" : "2",
+          "value" : "NO"
+        } ],
+        "order" : "2",
+        "requeried" : "0",
+        "visibility" : "1"
+      }, {
+        "answer_default" : "",
+        "description" : "¿Pregunta?",
+        "id_parent" : "0",
+        "id_question" : "1",
+        "id_secction" : "1",
+        "id_type" : "2",
+        "max_photo" : "-1",
+        "min_photo" : "-1",
+        "option" : [ {
+          "idInputEvent" : "idQuestion2",
+          "idOption" : "1",
+          "order" : "1",
+          "value" : "Si"
+        }, {
+          "idInputEvent" : "idQuestion1",
+          "idOption" : "2",
+          "order" : "2",
+          "value" : "NO"
+        } ],
+        "order" : "2",
+        "requeried" : "0",
+        "visibility" : "1"
+      }, {
+        "answer_default" : "",
+        "description" : "¿Pregunta?",
+        "id_parent" : "0",
+        "id_question" : "1",
+        "id_secction" : "1",
+        "id_type" : "3",
+        "max_photo" : "-1",
+        "min_photo" : "-1",
+        "option" : [ {
+          "idInputEvent" : "idQuestion2",
+          "idOption" : "1",
+          "order" : "1",
+          "value" : "Si"
+        }, {
+          "idInputEvent" : "idQuestion1",
+          "idOption" : "2",
+          "order" : "2",
+          "value" : "NO"
+        } ],
+        "order" : "2",
+        "requeried" : "0",
+        "visibility" : "1"
+      } ],
+      "description" : "Informacion de coca",
+      "idSeccion" : "1",
+      "idform" : "IdForm1",
+      "loaded" : true,
+      "managed" : false,
+      "name" : "coca",
+      "valid" : true
+    }
+  }
+}

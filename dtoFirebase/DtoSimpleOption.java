@@ -1,22 +1,16 @@
-package hidrosina.gshp.net.pre_alpha_hidrosina.Model.dto;
+package redes.com.pruebaanswer.firebase.Dto;
 
 import android.support.annotation.NonNull;
 
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
-public class DtoOption extends RealmObject {
-    @PrimaryKey
-    @NonNull
+public class DtoSimpleOption {
+
     private String idOption;
     private String IdInputEvent;
     private String value;
     private String order;
-
-    public DtoOption() {
-    }
-
-
 
     public String getIdOption() {
         return idOption;
@@ -59,6 +53,4 @@ public class DtoOption extends RealmObject {
                 ", order='" + order + '\'' +
                 '}';
     }
-
-
 }

@@ -111,6 +111,14 @@
           }
         },
         {
+          "client_id": "400566353350-btcdd13h78bjbl1de8d3osfd1i2bgu04.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "hidrosina.gshp.net.pre_alpha_hidrosina",
+            "certificate_hash": "86f8c43253f72bedb508935d71ae40756515d7cf"
+          }
+        },
+        {
           "client_id": "400566353350-n9u4p98v6vpmv3rlvust2hh8lc759jlm.apps.googleusercontent.com",
           "client_type": 3
         }

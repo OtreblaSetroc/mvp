@@ -22,17 +22,23 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import hidrosina.gshp.net.pre_alpha_hidrosina.Model.dto.DtoOption;
 import hidrosina.gshp.net.pre_alpha_hidrosina.Model.dto.DtoQuestion;
+import hidrosina.gshp.net.pre_alpha_hidrosina.Model.dto.DtoSimpleOption;
+import hidrosina.gshp.net.pre_alpha_hidrosina.Model.dto.DtoSimpleQuestion;
 import hidrosina.gshp.net.pre_alpha_hidrosina.R;
 
 public class RVMain2 extends RecyclerView.Adapter<RecyclerView.ViewHolder>  {
 
-    private List<DtoQuestion> dtoQuestionList;
+    private List<DtoSimpleQuestion> dtoQuestionList;
     private int type;
     private Context context;
     private String textoSi="Yes";
     private String texxtoNo="NO";
 
-    public RVMain2(List<DtoQuestion> dtoQuestionList,int type) {
+    public List<DtoSimpleQuestion> getDtoQuestionList() {
+        return dtoQuestionList;
+    }
+
+    public RVMain2(List<DtoSimpleQuestion> dtoQuestionList, int type) {
         this.dtoQuestionList = dtoQuestionList;
         this.type=type;
     }
@@ -77,8 +83,8 @@ public class RVMain2 extends RecyclerView.Adapter<RecyclerView.ViewHolder>  {
     }
 
     private void configureVSwitch(final ViewSwitch holder, final int position) {
-    /*
-        final DtoQuestion dtoQuestion=dtoQuestionList.get(position);
+
+        final DtoSimpleQuestion dtoQuestion=dtoQuestionList.get(position);
        // holder.tvQuestion.setText(dtoQuestion.getDescription()+" ");
         if (position%2==0){
             holder.linearLayout.setBackgroundResource(R.drawable.border_zebra1);
@@ -121,10 +127,10 @@ public class RVMain2 extends RecyclerView.Adapter<RecyclerView.ViewHolder>  {
 
         }
 
-        if (dtoQuestion.getDtoOptions()!=null){ // significa que no es un question tipo foto
-            if (dtoQuestion.getDtoOptions().size()<2){
-                final DtoOption dtoOptions;
-                dtoOptions=dtoQuestion.getDtoOptions().get(0);
+        if (dtoQuestion.getOption()!=null){ // significa que no es un question tipo foto
+            if (dtoQuestion.getOption().size()<2){
+                final DtoSimpleOption dtoOptions;
+                dtoOptions=dtoQuestion.getOption().get(0);
                 String textoSwitch=dtoOptions.getValue();
                 if (textoSwitch.contains("-")){
                     textoSi=textoSwitch.split(Pattern.quote("-"))[0];
@@ -135,49 +141,49 @@ public class RVMain2 extends RecyclerView.Adapter<RecyclerView.ViewHolder>  {
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                         if (isChecked){
                             holder.aSwitch.setText(textoSi+"");
-                            dtoOptions.setChecked(1);
+                            //dtoOptions.setChecked(1);
                         }else{
                             holder.aSwitch.setText(texxtoNo+"");
-                            dtoOptions.setChecked(2);
+                            //dtoOptions.setChecked(2);
                         }
                     }
                 });
-                if (dtoOptions.getChecked()==1){
+              /*  if (dtoOptions.getChecked()==1){
                     holder.aSwitch.setChecked(true);
                 }else{
                     holder.aSwitch.setChecked(false);
-                }
+                }*/
 
             }else{
-                /*Como es de tipo 2, Switch, solo se puede recibir mínimo un opción y máximo 2
-                final DtoOption dtoOptions;
-                dtoOptions=dtoQuestion.getDtoOptions().get(0);
-                textoSi=dtoQuestion.getDtoOptions().get(0).getValue();
-                texxtoNo=dtoQuestion.getDtoOptions().get(1).getValue();
+                /*Como es de tipo 2, Switch, solo se puede recibir mínimo un opción y máximo 2*/
+                final DtoSimpleOption dtoOptions;
+                dtoOptions=dtoQuestion.getOption().get(0);
+                textoSi=dtoQuestion.getOption().get(0).getValue();
+                texxtoNo=dtoQuestion.getOption().get(1).getValue();
                 holder.aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                         if (isChecked){
                             holder.aSwitch.setText(textoSi+"");
-                            dtoOptions.setChecked(1);
+                            //dtoOptions.setChecked(1);
 
                         }else{
                             holder.aSwitch.setText(texxtoNo+"");
-                            dtoOptions.setChecked(2);
+                           // dtoOptions.setChecked(2);
                         }
                     }
                 });
-                if (dtoOptions.getChecked()==1){
+                /*if (dtoOptions.getChecked()==1){
                     holder.aSwitch.setChecked(true);
                 }else{
                     holder.aSwitch.setChecked(false);
-                }
+                }*/
 
             }
 
         }
 
-         */
+
 
 
     }

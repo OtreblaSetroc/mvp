@@ -1,8 +1,9 @@
-package hidrosina.gshp.net.pre_alpha_hidrosina.Model.dto;
+package redes.com.pruebaanswer.firebase.Dto;
 
 import java.util.Map;
 
 public class DtoSimpleQuestion {
+
     private String id_question;
     private String id_secction;
     private String id_parent;

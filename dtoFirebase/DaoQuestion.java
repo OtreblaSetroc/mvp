@@ -1,4 +1,4 @@
-package hidrosina.gshp.net.pre_alpha_hidrosina.Model.dao;
+package redes.com.pruebaanswer.realm.Dao.Dao;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -13,15 +13,16 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import hidrosina.gshp.net.pre_alpha_hidrosina.AppDb;
-import hidrosina.gshp.net.pre_alpha_hidrosina.Model.dto.DtoQuestion;
 import io.realm.Realm;
 import io.realm.RealmList;
+import redes.com.pruebaanswer.realm.Dao.AppDb;
+import redes.com.pruebaanswer.realm.Dao.Dto.DtoQuestion;
 
 public class DaoQuestion {
     private Realm realm;
     private DatabaseReference mDatabase;
     private List<DtoQuestion> dtoQuestionList;
+
     public DaoQuestion(Context context) {
         realm = AppDb.getAppDbRealm(context);
     }
