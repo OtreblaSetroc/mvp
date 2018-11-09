@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class Question {
     private String id;
-    private String description8;
+    private String description;
     private String answerDefault;
 
     private String idParent;
